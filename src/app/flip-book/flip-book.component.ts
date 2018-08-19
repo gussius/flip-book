@@ -46,7 +46,7 @@ class Page {
       width: 500px;
       height: 300px;
       perspective: 1500px;
-      background-image: url(/assets/img/book-background2.png);
+      background-image: url(./assets/img/book-background2.png);
       background-repeat: no-repeat;
       background-size: 505px 286px;
       background-position: -2px 9px;
@@ -105,7 +105,7 @@ export class FlipBookComponent implements OnInit, OnDestroy {
 
   private  nodeStyles = {
     hostStyle: {
-      'background-image': 'url(src/assets/img/page-background3.png)'
+      'background-image': 'url(./assets/img/page-background3.png)'
     },
     contentStyle: {
       'height':  '17em',
@@ -142,6 +142,7 @@ export class FlipBookComponent implements OnInit, OnDestroy {
     this.renderer.listen(this.canvas, 'mousedown', event =>  this.mouseDownHandler(event));
     this.renderer.listen(window, 'mouseup', event =>  this.mouseUpHandler(event));
     
+    // Handle changes when the NodeComponent array is updated.
     this.nodesSubscription = this.flowService.nodes.subscribe(nodes => {
       if (nodes) {
         this.nodes = nodes;
